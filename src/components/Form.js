@@ -22,7 +22,7 @@ export default function FormBody({ title }) {
             setError('');
             setSentMessage('');
             setLoading(true);
-            Axios.post("http://localhost:4000/create-post", {
+            Axios.post("https://eph-app.herokuapp.com/create-post", {
                 username: usernameRef.current.value,
                 email: email,
                 message: messageRef.current.value

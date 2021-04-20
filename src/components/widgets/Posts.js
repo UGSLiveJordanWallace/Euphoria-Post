@@ -7,7 +7,7 @@ export default function Posts() {
     const [posts, setPosts] = useState([]);
 
     function handlePull() {
-        Axios.get("http://localhost:4000/").then((response) => {
+        Axios.get("https://eph-app.herokuapp.com/").then((response) => {
             if(response.data.errorMessage) {
                 return setPosts(response.data.errorMessage);
             } else {
