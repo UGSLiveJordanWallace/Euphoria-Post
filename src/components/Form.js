@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Header from './Header';
 import Axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
 import { Card, Button, Form, Alert } from 'react-bootstrap';
 
 export default function FormBody({ title }) {
@@ -10,7 +9,6 @@ export default function FormBody({ title }) {
     const usernameRef = useRef();
     const email = currentUser.email;
     const messageRef = useRef();
-    const history = useHistory();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [sentMessage, setSentMessage] = useState('');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Form, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -19,20 +19,25 @@ const NavbarWidget = ({ title }) => {
 
     return (
         <>
-            <Navbar bg="light" expand="sm">
+            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="justify-content-space-between">
+            <Button variant="outline-none">{''}</Button>
             <Navbar.Brand href="">{title}</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-            <Navbar.Collapse id="basic-navbar-nav" >
-                <Nav className="mr-auto" className="d-flex justify-content-end">
-                <Nav.Link href="/">Posts</Nav.Link>
-                <Nav.Link href="/create-post">Create Post</Nav.Link>
+            <Nav.Link href="/">Posts</Nav.Link>
+            <Nav.Link href="/create-post">Create Post</Nav.Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+                <Nav className="mr-auto">
                 <Navbar.Text>
-                        Signed in as: <Link to="/login">{currentUser.email}</Link>
+                        Signed in as: <Link to="/login" className="px-2">{currentUser.email}</Link>
+                </Navbar.Text>
+                <Navbar.Text>
+                    
                 </Navbar.Text>
                 </Nav>
-                <Form inline>
-                    <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
-                </Form>
+                <Nav>
+                    <Button variant="outline-danger" className="" onClick={handleLogout}>Logout</Button>
+                </Nav>
+                <Button variant="outline-none">{''}</Button>
             </Navbar.Collapse>
             </Navbar>
             <br></br>

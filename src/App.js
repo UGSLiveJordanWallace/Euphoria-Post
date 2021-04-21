@@ -4,7 +4,7 @@ import Login from './components/Authentication/Login';
 import CreatePost from './components/CreatePost';
 import PrivateRoute from './components/widgets/PrivateRoute';
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {

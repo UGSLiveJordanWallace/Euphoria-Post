@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NavbarWidget from './widgets/Navbar';
 import Posts from './widgets/Posts';
 

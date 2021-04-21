@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import Post from './Post';
-import { Card, Button, Alert, Accordion } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 export default function Posts() {
     const [posts, setPosts] = useState([]);

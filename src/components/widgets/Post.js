@@ -1,11 +1,7 @@
 import React, { useContext } from 'react'
-import { BsFillXOctagonFill } from "react-icons/bs";
 import { Card, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap';
-import { useAuth } from '../../context/AuthContext';
 
 const Post = ({ header, email, post, index }) => {
-
-  const { currentUser } = useAuth();
 
     function ContextAwareToggle({ children, eventKey, callback }) {
         const currentEventKey = useContext(AccordionContext);
