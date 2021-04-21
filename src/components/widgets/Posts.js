@@ -19,7 +19,7 @@ export default function Posts() {
     return (
         <>
             {posts.map((val, key) => {
-                return <Post header={val.username} email={val.email} post={val.message} index={key}/>
+                return <Post header={val.username} email={val.email} post={val.message} id={val.id} index={key}/>
             })}
             <Button variant="dark" onClick={handlePull}> View Posts </Button> <br></br>
         </>
