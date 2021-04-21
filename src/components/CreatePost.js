@@ -5,7 +5,7 @@ import NavbarWidget from './widgets/Navbar';
 export default function CreatePost() {
     return (
         <>
-            <NavbarWidget title="Teddy Bear" />
+            <NavbarWidget title="Euphoria" />
             <FormBody title="Euphoria"/>
         </>
     );

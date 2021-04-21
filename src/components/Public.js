@@ -5,7 +5,7 @@ import Posts from './widgets/Posts';
 export default function Public() {
     return (
         <>
-            <NavbarWidget title="Teddy Bear" />
+            <NavbarWidget title="Euphoria" />
             <div>
                 <h1 className="text-center" size="lg">Public</h1>
                 <Posts />
