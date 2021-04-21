@@ -34,6 +34,7 @@ export default function Signup() {
 
   return (
     <>
+    <br></br>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>

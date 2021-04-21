@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Form, Button, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -22,8 +22,12 @@ const NavbarWidget = ({ title }) => {
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="justify-content-space-between">
             <Button variant="outline-none">{''}</Button>
             <Navbar.Brand href="">{title}</Navbar.Brand>
-            <Nav.Link href="/">Posts</Nav.Link>
-            <Nav.Link href="/create-post">Create Post</Nav.Link>
+            <Navbar.Text>
+                <Link to="/" className="px-2 text-decoration-none">Posts</Link>
+            </Navbar.Text>
+            <Navbar.Text>
+                <Link to="/create-post" className="px-2 text-decoration-none">Create Post</Link>
+            </Navbar.Text>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                 <Nav className="mr-auto">
