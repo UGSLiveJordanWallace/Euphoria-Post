@@ -31,7 +31,7 @@ const Post = ({ header, id, post, index }) => {
       return (
         <button
           type="button"
-          style={{ backgroundColor: isCurrentEventKey ? 'pink' : 'lavender' }}
+          style={{ backgroundColor: isCurrentEventKey ? 'grey' : 'lavender' }}
           onClick={decoratedOnClick}
         >
           {children}

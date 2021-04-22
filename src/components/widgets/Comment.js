@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { Button, Form, Alert } from 'react-bootstrap';
 import Axios from 'axios';
-import { Button, Form } from 'react-bootstrap';
 
 const Comment = ({ id }) => {
     const usernameRef = useRef();
     const messageRef = useRef(); 
+    
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
 
     function HandleComment(e) {
         e.preventDefault();
@@ -16,9 +19,9 @@ const Comment = ({ id }) => {
                 username: usernameRef.current.value
             }).then((response) => {
                 if (response.data.errorMessage){
-                    console.log(response.data.errorMessage);
+                    setError(response.data.errorMessage);
                 } else {
-                    console.log(response.data.successMessage);
+                    setSuccess(response.data.successMessage);
                 }
             });
         } catch (e) {
@@ -29,6 +32,8 @@ const Comment = ({ id }) => {
     return (
         <>
             <Form onSubmit={HandleComment}>
+                {error && <Alert variant="danger">{error}</Alert>}
+                {success && <Alert variant="success">{success}</Alert>}
                 <Form.Control className="mb-1" ref={usernameRef} required/>
                 <Form.Control as="textarea" className="mb-3" ref={messageRef} required/>
                 <Button type="submit">Comment</Button>

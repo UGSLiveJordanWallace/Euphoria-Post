@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Card } from 'react-bootstrap';
+import { Card, Alert } from 'react-bootstrap';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Comments = ({ username, message, id }) => {
@@ -30,9 +30,10 @@ const Comments = ({ username, message, id }) => {
         <>
         <Card>
             <Card.Body>
-            <h5 className="d-inline-flex">{username}</h5>
-            <div className="d-inline-flex p-2 col-example ml-3"><FaTrashAlt styles={{ cursor: 'pointer' }} onClick={handleDelete}/></div>
-            <p>{message}</p>
+                {error && <Alert variant="danger">{error}</Alert>}
+                {success && <Alert variant="success">{success}</Alert>}
+                <h5>{username} <FaTrashAlt styles={{ cursor: 'pointer' }} onClick={handleDelete}/></h5>
+                <p>{message}</p>
             </Card.Body>
         </Card>
         </>
