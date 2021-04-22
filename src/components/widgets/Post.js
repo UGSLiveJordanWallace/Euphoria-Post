@@ -57,7 +57,7 @@ const Post = ({ header, id, post, index }) => {
                         <Button onClick={handleGetComment} className="mb-3">View Comments</Button>
                         {comments.map((comments, key) => {
                           if (comments.id === id) {
-                            return <Comments username={comments.username} message={comments.message} />
+                            return <Comments username={comments.username} message={comments.message} id={id}/>
                           } else {
                             return "";
                           }
