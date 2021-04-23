@@ -11,19 +11,14 @@ export default function FormBody({ title }) {
     const messageRef = useRef();
     const [error, setError] = useState('');
     const [sentMessage, setSentMessage] = useState('');
-    const [image, setImage] = useState('');
-    const [imageName, setImageName] = useState('');
     const [loading, setLoading] = useState(false);
-
-    function fileSelectedHandler(event) {
-        setImage(event.target.files[0]);
-        setImageName(event.target.files[0].name);
-    }
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (image === [] || image === undefined || image === "") {
+        let d = new Date();
+        const dateTime = d.toUTCString();
+
             try{
                 setError('');
                 setSentMessage('');
@@ -31,7 +26,8 @@ export default function FormBody({ title }) {
                 Axios.post("https://eph-app.herokuapp.com/create-post", {
                     username: usernameRef.current.value,
                     email: email,
-                    message: messageRef.current.value
+                    message: messageRef.current.value,
+                    date: dateTime
                 }).then((response) => {
                     if (response.data.errorMessage) {
                         return setError(response.data.errorMessage);
@@ -49,36 +45,7 @@ export default function FormBody({ title }) {
             }
             setLoading(false);
 
-        } else {
-            const formData = new FormData();
-            formData.append('username', usernameRef.current.value)
-            formData.append('email', email)
-            formData.append('message', messageRef.current.value)
-            formData.append('file', image);
-
-            try{
-                setError('');
-                setSentMessage('');
-                setLoading(true);
-                Axios.post("https://eph-app.herokuapp.com/upload-image-post", formData).then((response) => {
-                    if(response.data.errorMessage) {
-                        return setError(response.data.errorMessage);
-                    }
-                    else {
-                        return setSentMessage(response.data.successMessage);
-                    }
-                });
-            } catch (e) {
-                if (e.response.status === 500) {
-                    return setError("Problem With Server");
-                } else {
-                    return setError(e.response.data.msg);
-                }
-            }
-
-            setLoading(false);
         }
-    }
 
     return (
         <>
@@ -97,11 +64,6 @@ export default function FormBody({ title }) {
                             <Form.Label>Message:</Form.Label>
                             <Form.Control as="textarea" ref={messageRef} rows={5} required/>
                         </Form.Group>
-                        <br></br>        
-                        <input type="file" className="custom-file-input" id="customFile" onChange={fileSelectedHandler} />
-                        <label className='custom-file-label' htmlFor='customFile'>
-                            {imageName}
-                        </label>
                         <br></br>
                         <br></br>
                         <Button disabled={loading} className="w-100" variant="primary" type="submit" size="lg">

@@ -19,12 +19,7 @@ export default function Posts() {
     return (
         <>
             {posts.map((val, key) => {
-                if (val.image){
-                    console.log(val.image);
-                    return <Post header={val.username} email={val.email} post={val.message} id={val.id} index={key} image={val.image}/>
-                } else {
-                    return <Post header={val.username} email={val.email} post={val.message} id={val.id} index={key}/>
-                }
+                return <Post header={val.username} email={val.email} post={val.message} id={val.id} date={val.date} index={key}/>
             })}
             <Button variant="dark" onClick={handlePull}> View Posts </Button> <br></br>
         </>
