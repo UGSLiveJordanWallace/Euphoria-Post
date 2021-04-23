@@ -17,7 +17,58 @@ export default function FormBody({ title }) {
         e.preventDefault();
 
         let d = new Date();
-        const dateTime = d.toUTCString();
+        let month = d.getMonth() + 1;
+        let year = d.getFullYear();
+        let date = d.getDate();
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+
+        switch (month) {
+            case 1:
+                month = "January";
+                break;
+            case 2:
+                month = "February";
+                break;
+            case 3:
+                month = "March";
+                break;
+            case 4:
+                month = "April";
+                break;
+            case 5:
+                month = "May";
+            case 6:
+                month = "June";
+                break;
+            case 7:
+                month = "July";
+                break;
+            case 8:
+                month = "August";
+                break;
+            case 9:
+                month = "September";
+                break;
+            case 10:
+                month = "October";
+                break;
+            case 11:
+                month = "November";
+                break;
+            case 12:
+                month = "December";
+                break;
+            default:
+                break;
+        }
+
+        const dateTime = month + " " + date + " " + year + " " + strTime;
 
             try{
                 setError('');
@@ -41,7 +92,7 @@ export default function FormBody({ title }) {
                 });
     
             } catch (e) {
-                setError("Unable to send data to the database: " + e);
+                setError("Unable to send post to the database: " + e);
             }
             setLoading(false);
 
