@@ -55,7 +55,7 @@ const Post = ({ header, id, post, index, image }) => {
                         {image ? <img
                             style={{ width: '350px'}}
                             className="photo"
-                            src={image}
+                            src={`./public/${image}`}
                             alt={'use image did not load'}
                         /> : null}
                         <br></br>
