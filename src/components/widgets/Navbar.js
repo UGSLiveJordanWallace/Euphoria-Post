@@ -20,7 +20,7 @@ const NavbarWidget = ({ title }) => {
     return (
         <>
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="justify-content-space-between">
-            <Navbar.Brand href="">{title}</Navbar.Brand>
+            <Navbar.Brand href="/create-post">{title}</Navbar.Brand>
             <Navbar.Text>
                 <Link to="/" className="px-2 text-decoration-none">Posts</Link>
             </Navbar.Text>

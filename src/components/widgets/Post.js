@@ -4,7 +4,7 @@ import { Button, Card, Accordion, AccordionContext, useAccordionToggle, Alert } 
 import Axios from 'axios';
 import Comments from './Comments';
 
-const Post = ({ header, id, post, index }) => {
+const Post = ({ header, id, post, index, image }) => {
   const [error, setError] = useState('');
   const [comments, setComments] = useState([]);
 
@@ -52,6 +52,12 @@ const Post = ({ header, id, post, index }) => {
                         {error && <Alert variant="danger">{error}</Alert>}
                         {post}
                         <br></br>
+                        {image ? <img
+                            style={{ width: '350px'}}
+                            className="photo"
+                            src={image}
+                            alt={'use image did not load'}
+                        /> : null}
                         <br></br>
                         <br></br>
                         <Button onClick={handleGetComment} className="mb-3">View Comments</Button>
