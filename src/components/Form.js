@@ -92,7 +92,7 @@ export default function FormBody({ title }) {
                 });
     
             } catch (e) {
-                setError("Unable to send post to the database: " + e);
+                setError("Unable to send post here is why: " + e);
             }
             setLoading(false);
 
